@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="EcoSort helps you identify waste, find recycling options, and build greener habits.">
+<meta property="og:title" content="EcoSort | Smart Waste Segregation">
+<meta property="og:description" content="Sort waste correctly, find recycling centers, and earn Eco Points.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E♻️%3C/text%3E%3C/svg%3E">
+<title>EcoSort | Smart Waste Segregation</title>
+<style>
+:root{color-scheme:light dark;--green:#16845b;--dark:#123b2c;--mint:#eaf7ef;--ink:#183329;--muted:#5b6d64;--paper:#f7faf7;--card:#fff;--line:#e1ebe4;--field:#fff;--fl:#cfe1d4}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--green:#3dc48a;--dark:#d9f2e4;--mint:#16312a;--ink:#e3efe8;--muted:#9fb5aa;--paper:#0e1a15;--card:#15261f;--line:#25392f;--field:#102019;--fl:#2f4a3d}}
+:root[data-theme=dark]{--green:#3dc48a;--dark:#d9f2e4;--mint:#16312a;--ink:#e3efe8;--muted:#9fb5aa;--paper:#0e1a15;--card:#15261f;--line:#25392f;--field:#102019;--fl:#2f4a3d}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+header{position:sticky;top:0;z-index:20;background:var(--card);border-bottom:1px solid var(--line)}
+.nav{max-width:1200px;margin:auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-size:1.4rem;font-weight:800;color:var(--dark);text-decoration:none;white-space:nowrap}.brand span{color:var(--green)}
+nav{display:flex;gap:13px;align-items:center;flex-wrap:wrap}nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.84rem}nav a:hover{color:var(--green)}
+.tools{display:flex;gap:6px;align-items:center}.tools select{width:auto;padding:6px 8px;font-size:.85rem}.icon-btn{border:1px solid var(--fl);background:var(--mint);color:var(--ink);border-radius:9px;padding:6px 10px;cursor:pointer;font-size:1rem}
+.menu{display:none}
+.hero{background:linear-gradient(115deg,#103e2e,#16845b);color:#fff;padding:68px 22px}.hero-inner{max-width:1150px;margin:auto;display:grid;grid-template-columns:1.25fr .75fr;gap:45px;align-items:center}.hero h1{font-size:clamp(2.3rem,5vw,4.4rem);line-height:1.08;margin:0 0 18px}.hero p{font-size:1.1rem;color:#e2f4e8;max-width:620px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-block;border:0;border-radius:10px;padding:12px 18px;font-weight:700;text-decoration:none;cursor:pointer;font-size:.94rem}.btn-light{background:#fff;color:#123b2c}.btn-outline{border:1px solid #bde8cd;color:#fff;background:transparent}.btn-green{background:var(--green);color:#fff}.dark-text .btn-green{color:#06150e}.btn-soft{background:var(--mint);color:var(--dark)}button:disabled{opacity:.5;cursor:not-allowed}
+.hero-art{background:#ffffff18;border:1px solid #ffffff35;border-radius:28px;padding:28px;text-align:center}.hero-art .emoji{font-size:5.5rem}.hero-art h3{margin:5px 0 0;font-size:1.4rem}
+.wrap{max-width:1150px;margin:auto;padding:56px 22px}.section-head{text-align:center;max-width:720px;margin:0 auto 28px}h2{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.2;margin:0 0 10px;color:var(--dark)}.section-head p,.muted{color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-25px;position:relative}.stat,.card,.panel,.waste,.quiz{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:20px}.stat{text-align:center}.stat strong{font-size:1.7rem;color:var(--green);display:block}.stat span{color:var(--muted);font-size:.88rem}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card .icon{font-size:2.1rem}.card h3,.panel h3{margin:6px 0 5px;color:var(--dark)}.card p{color:var(--muted);margin:0;font-size:.92rem}
+.alt{background:var(--mint)}.searchbar{max-width:650px;margin:0 auto 22px;display:flex;gap:10px}.field,select,textarea,.searchbar input{width:100%;padding:12px 14px;border:1px solid var(--fl);border-radius:10px;font-size:1rem;background:var(--field);color:var(--ink)}
+.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.tag{display:inline-block;border-radius:30px;padding:3px 10px;font-size:.75rem;font-weight:700;margin-bottom:6px}.wet{background:#e2f5e8;color:#17613d}.dry{background:#e5efff;color:#24518d}.haz{background:#fff0dc;color:#96560d}.san{background:#fde7ef;color:#8d2450}.waste h3{margin:2px 0;color:var(--dark)}.waste p{margin:4px 0;color:var(--muted);font-size:.92rem}
+.quiz{max-width:720px;margin:auto;padding:25px}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answer{padding:12px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);text-align:left;cursor:pointer;font-weight:600}.answer:hover{border-color:var(--green)}.answer.ok{border-color:#1a9d62;background:#dff5e8;color:#0d4a2c}.answer.bad{border-color:#d4543c;background:#fde6e1;color:#7a2616}#quizFeedback{min-height:28px;font-weight:700;margin:14px 0 8px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}.stack{display:grid;gap:12px;align-content:start}.preview{max-width:100%;max-height:240px;object-fit:contain;border-radius:12px;display:none}.result{border-radius:12px;background:var(--mint);padding:15px;display:none}.small{font-size:.86rem;color:var(--muted)}
+.challenge{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}.challenge:last-child{border:0}.challenge input{margin-top:6px;accent-color:var(--green);width:18px;height:18px}.points{font-size:2rem;font-weight:800;color:var(--green)}.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.metric{background:var(--mint);border-radius:12px;padding:14px}.metric strong{display:block;font-size:1.5rem;color:var(--green)}.report-list{padding-left:18px}.report-list li{margin:7px 0;overflow-wrap:anywhere}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.about-box{background:var(--mint);border-radius:20px;padding:24px}.about-box li{margin:8px 0}
+footer{background:#103e2e;color:#dceee2;padding:26px 22px}.footer-inner{max-width:1150px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:1000px){.nav{flex-wrap:wrap}nav{gap:10px}.hero-inner,.about{grid-template-columns:1fr}.cards,.stats,.metric-grid{grid-template-columns:repeat(2,1fr)}.guide-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.menu{display:inline-block}nav{display:none;width:100%;order:5;padding:8px 0;flex-direction:column;align-items:flex-start}nav.open{display:flex}.cards,.guide-grid,.two-col,.answers{grid-template-columns:1fr}.searchbar{flex-direction:column}.hero{padding:48px 20px}.wrap{padding:42px 20px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="nav"><a class="brand" href="#home">♻ Eco<span>Sort</span></a>
+<nav id="nav" aria-label="Main">
+<a href="#home" data-i="nHome">Home</a><a href="#categories" data-i="nCat">Categories</a><a href="#guide" data-i="nGuide">Waste Guide</a><a href="#identifier" data-i="nId">Identifier</a><a href="#centers" data-i="nCen">Recycling Centers</a><a href="#rewards" data-i="nRew">Rewards</a><a href="#challenge" data-i="nCh">Challenge</a><a href="#report" data-i="nRep">Report</a><a href="#quiz" data-i="nQuiz">Quiz</a><a href="#dashboard" data-i="nDash">My Dashboard</a>
+</nav>
+<div class="tools"><select id="lang" aria-label="Language"><option value="en">English</option><option value="hi">हिन्दी</option><option value="mr">मराठी</option></select><button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode">🌓</button><button class="icon-btn menu" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav">☰</button></div></div></header>
+<main>
+<section class="hero" id="home"><div class="hero-inner"><div><h1 data-i="h1">Sort your waste.<br>Save our planet.</h1><p data-i="hp">Identify common waste, learn the right disposal method, find recycling options, and build greener everyday habits.</p><div class="actions"><a class="btn btn-light" href="#identifier" data-i="cta1">Identify waste</a><a class="btn btn-outline" href="#guide" data-i="cta2">Explore waste guide</a></div></div><div class="hero-art"><div class="emoji">🌍♻️</div><h3>Reduce, reuse, recycle</h3></div></div></section>
+<div class="wrap" style="padding-top:0;padding-bottom:20px"><div class="stats"><div class="stat"><strong>4</strong><span>Waste categories</span></div><div class="stat"><strong id="homePoints">0</strong><span>Your Eco Points</span></div><div class="stat"><strong id="homeKg">0</strong><span>Estimated kg diverted</span></div><div class="stat"><strong id="homeReports">0</strong><span>Reports on this device</span></div></div></div>
+
+<section class="wrap" id="categories"><div class="section-head"><h2 data-i="hCat">Waste categories</h2><p>Separating waste at source makes collection, recycling, and safe disposal easier.</p></div><div class="cards">
+<div class="card"><div class="icon">🍌</div><h3>Wet / biodegradable</h3><p>Fruit peels, vegetable scraps, leftover food. Compost it or use the wet-waste bin.</p></div>
+<div class="card"><div class="icon">📰</div><h3>Dry / recyclable</h3><p>Clean paper, cardboard, glass, metal and accepted plastics. Keep them clean and dry.</p></div>
+<div class="card"><div class="icon">🔋</div><h3>Hazardous / e-waste</h3><p>Batteries, bulbs, medicines, paint and electronics need special handling.</p></div>
+<div class="card"><div class="icon">🩹</div><h3>Sanitary waste</h3><p>Diapers, pads and bandages. Wrap, mark red and hand over separately.</p></div>
+</div></section>
+
+<section class="alt" id="guide"><div class="wrap"><div class="section-head"><h2 data-i="hGuide">Waste segregation guide</h2><p>Search an item to find its category and disposal method.</p></div>
+<div class="searchbar"><input id="searchInput" type="search" placeholder="Try: banana peel, battery, diaper…" aria-label="Search waste item"><button class="btn btn-green" id="clearSearch">Clear</button></div>
+<div class="guide-grid" id="guideGrid"></div><p id="noResults" class="muted" style="display:none;text-align:center">No matching item found. Try another word, or choose a category in the Identifier below.</p></div></section>
+
+<section class="wrap" id="identifier"><div class="section-head"><h2 data-i="hId">Waste identifier</h2><p>Type an item name and get its category instantly. A photo is optional and is only previewed on your device. If the item isn’t found, pick a category yourself.</p></div><div class="two-col"><div class="panel stack"><label><strong>Item name</strong><input class="field" id="wasteName" placeholder="e.g. pizza box, tetra pack, charger"></label><label><strong>Photo (optional)</strong><input class="field" type="file" id="wastePhoto" accept="image/*"></label><img id="photoPreview" class="preview" alt="Preview of your waste photo"><p class="small">Photos stay in your browser and are never uploaded.</p></div>
+<div class="panel stack"><label><strong>Not sure of the name? Choose a category</strong><select id="wasteType"><option value="">No category selected</option><option value="w">Wet / biodegradable</option><option value="d">Dry / recyclable</option><option value="h">Hazardous / e-waste</option><option value="s">Sanitary waste</option></select></label><button class="btn btn-green" id="identifyBtn">Find disposal method</button><div class="result" id="identifyResult" aria-live="polite"></div></div></div></section>
+
+<section class="alt" id="centers"><div class="wrap"><div class="section-head"><h2 data-i="hCen">Nearby recycling centers</h2><p>Find recycling and e-waste collection points around you.</p></div><div class="panel" style="text-align:center"><div style="font-size:2.4rem">📍</div><p class="muted">Allow location access to search around your position. Check hours and accepted materials before you go.</p><div class="actions" style="justify-content:center"><button class="btn btn-green" data-q="recycling center">Find recycling centers ↗</button><button class="btn btn-soft" data-q="e-waste collection point">Find e-waste points ↗</button></div><p class="small" id="geoMsg" aria-live="polite"></p></div></div></section>
+
+<section class="wrap" id="rewards"><div class="section-head"><h2 data-i="hRew">Eco Points and rewards</h2><p>Earn points for eco-friendly activities. Points are saved in this browser and are self-reported.</p></div><div class="two-col"><div class="panel"><div class="small">Your Eco Points</div><div class="points" id="pointsDisplay">0 pts</div><div class="metric-grid" style="grid-template-columns:repeat(3,1fr)"><div class="metric"><strong id="levelDisplay">Seed</strong><span class="small">Eco level</span></div><div class="metric"><strong id="activityCount">0</strong><span class="small">Activities</span></div><div class="metric"><strong id="nextLevel">50</strong><span class="small">Points to next level</span></div></div><p class="small">Streak: <strong id="streak">0</strong> day(s) in a row</p><p class="small" id="badges"></p></div>
+<div class="panel stack"><h3>Earn points</h3><button class="btn btn-soft earn" data-id="segregate" data-points="10" data-kg="1">I segregated my waste (+10)</button><button class="btn btn-soft earn" data-id="reusable" data-points="10" data-kg="0.2">I used a reusable bag or bottle (+10)</button><button class="btn btn-soft earn" data-id="recycle" data-points="20" data-kg="2">I sent items for recycling (+20)</button><p class="small" id="rewardMessage" aria-live="polite">One reward per activity per day. Learning and demo points only.</p></div></div></section>
+
+<section class="alt" id="challenge"><div class="wrap"><div class="section-head"><h2 data-i="hCh">Daily eco challenge</h2><p>Tick each task once you have done it. Each earns 5 points.</p></div><div class="panel" style="max-width:760px;margin:auto"><div class="small" id="challengeDate"></div>
+<label class="challenge"><input type="checkbox" data-challenge="0"><span><strong>Separate wet and dry waste</strong><br><span class="small">Keep household waste in separate bins.</span></span></label><label class="challenge"><input type="checkbox" data-challenge="1"><span><strong>Avoid a single-use plastic item</strong><br><span class="small">Carry a reusable bag, bottle or container.</span></span></label><label class="challenge"><input type="checkbox" data-challenge="2"><span><strong>Reuse or recycle one item</strong><br><span class="small">Give an item a second life.</span></span></label>
+<p id="challengeStatus" class="small" aria-live="polite"></p></div></div></section>
+
+<section class="wrap" id="report"><div class="section-head"><h2 data-i="hRep">Report improper waste disposal</h2><p>Record a local issue, then share it with your municipal body. EcoSort doesn’t send complaints itself.</p></div><div class="two-col"><form class="panel stack" id="reportForm"><label><strong>Issue type</strong><select id="issueType" required><option value="">Choose an issue</option><option>Illegal garbage dumping</option><option>Overflowing public bin</option><option>Mixed waste / poor segregation</option><option>Open burning of waste</option><option>Other</option></select></label><label><strong>Location / area</strong><input class="field" id="issueLocation" placeholder="e.g. Near college main gate" required></label><label><strong>Description</strong><textarea id="issueDescription" rows="3" placeholder="Describe the issue…" required></textarea></label><button class="btn btn-green" type="submit">Save report</button><p class="small" id="reportMessage" aria-live="polite"></p>
+<div id="shareBox" style="display:none" class="actions"><a class="btn btn-soft" id="waShare" target="_blank" rel="noopener">Share on WhatsApp ↗</a><button type="button" class="btn btn-soft" id="copyReport">Copy text</button></div></form>
+<div class="panel"><h3>File an official complaint</h3><p class="muted">For Pimpri-Chinchwad, use the PCMC grievance channels. Elsewhere, use your municipal corporation’s complaint line. Attach your own photo when you send it.</p><a class="btn btn-green" href="https://www.pcmcindia.gov.in" target="_blank" rel="noopener">PCMC website ↗</a><div class="result" style="display:block;margin-top:14px"><strong>Privacy</strong><p class="small">Reports stay in this browser. No photos are stored.</p></div></div></div></section>
+
+<section class="alt" id="dashboard"><div class="wrap"><div class="section-head"><h2 data-i="hDash">My dashboard</h2><p>Your own activity on this device. Nothing here is shared or sent to a server.</p></div><div class="metric-grid"><div class="metric"><strong id="adminPoints">0</strong><span class="small">Eco Points</span></div><div class="metric"><strong id="adminKg">0</strong><span class="small">Estimated kg diverted</span></div><div class="metric"><strong id="adminReports">0</strong><span class="small">Reports saved</span></div><div class="metric"><strong id="adminChallenges">0</strong><span class="small">Challenges done today</span></div></div>
+<div class="panel" style="margin-top:16px"><h3>Recent reports</h3><ul class="report-list" id="adminReportList"></ul><button class="btn btn-soft" id="resetData">Reset my data</button></div></div></section>
+
+<section class="wrap" id="quiz"><div class="section-head"><h2 data-i="hQuiz">EcoSort quiz</h2><p>Test your waste-segregation knowledge. Earn 2 points per correct answer, once a day.</p></div><div class="quiz"><div class="small" id="quizCount"></div><h3 id="question"></h3><div class="answers" id="answers"></div><div id="quizFeedback" aria-live="polite"></div><button class="btn btn-green" id="nextQuestion" style="display:none">Next question</button></div></section>
+
+<section class="wrap" id="about"><div class="about"><div><h2>Making waste segregation easier for everyone</h2><p class="muted">EcoSort helps people identify common household waste and understand responsible disposal. Correct segregation reduces contamination and helps recyclables reach the right facilities.</p><p class="muted">Always follow your municipal body’s local rules. Accepted materials and collection systems vary by area.</p></div><div class="about-box"><h3>🌱 Five simple habits</h3><ul><li>Keep wet and dry waste separate.</li><li>Rinse and dry recyclable containers.</li><li>Reuse items before throwing them away.</li><li>Never put batteries or electronics in regular bins.</li><li>Compost kitchen waste: a small bin with dry leaves or cocopeat works at home.</li></ul></div></div></section>
+</main>
+<footer><div class="footer-inner"><div><strong>♻ EcoSort</strong><br><small>Smart waste segregation and recycling awareness</small></div><div><small>© <span id="year"></span> EcoSort Project</small></div></div></footer>
+<script>
+const $=id=>document.getElementById(id);
+const read=(k,f)=>{try{const v=JSON.parse(localStorage.getItem(k));return v??f}catch(e){return f}};
+const write=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const today=()=>new Date().toDateString();
+$('year').textContent=new Date().getFullYear();
+
+// ---- Data: one list drives the guide and the identifier ----
+const CAT={w:['Wet waste','wet','Compost it or use the wet-waste bin.'],d:['Dry waste','dry','Keep clean and dry, then give it to a recycler or the dry-waste bin.'],h:['Hazardous / e-waste','haz','Keep it separate and take it to an authorised collection point.'],s:['Sanitary waste','san','Wrap in paper, mark it red and hand it over separately. Never mix it with wet or dry waste.']};
+const ITEMS=[
+['w','🍌','Banana peel','Compost or wet-waste bin.','fruit peel food'],['w','🥬','Vegetable scraps','Compost or wet-waste bin.','vegetable kitchen food'],['w','☕','Tea leaves / eggshells','Add to a compost bin.','tea coffee grounds egg shell'],['w','🍚','Cooked leftovers','Wet-waste bin. Give edible surplus to someone first.','food rice roti dal'],['w','🌿','Garden leaves, flowers','Compost, or dry and use as mulch.','leaves flowers puja garden'],['w','🍳','Cooking oil (used)','Never pour down the drain. Collect in a bottle and give to an oil collector.','oil fat ghee'],
+['d','📰','Newspaper / paper','Keep dry and give to a paper recycler.','paper cardboard magazine book'],['d','📦','Cardboard box','Flatten it and keep it dry. Greasy parts go to wet waste.','carton box pizza'],['d','🥤','Plastic bottle','Empty, rinse, dry and recycle where accepted.','pet container'],['d','🛍️','Plastic wrappers / bags','Keep clean and dry. Give to the dry-waste collector.','packet chips wrapper polybag'],['d','🍾','Glass bottle / jar','Keep separate and unbroken. Give to a glass recycler.','glass jar'],['d','🥫','Metal can','Empty and rinse before recycling.','aluminium tin steel'],['d','🧃','Tetra pak / juice box','Rinse, flatten and give to a dry-waste collector or recycler.','carton juice milk'],['d','👕','Old clothes','Donate wearable clothes. Use a textile collection point for the rest.','cotton cloth textile shoes'],['d','⚪','Thermocol','Keep dry and give to a dry-waste collector. Reuse for packing if possible.','styrofoam foam packaging'],
+['h','🔋','Battery / cell','Take to an authorised battery collection point.','cell rechargeable'],['h','💡','Bulb / tube light / CFL','Keep unbroken and use a designated collection facility.','lamp led'],['h','📱','Old mobile phone','Give to an authorised e-waste collection centre.','laptop electronics e waste'],['h','🔌','Charger / cables','Take to an e-waste collection centre.','wire cable earphones adapter'],['h','💊','Expired medicine','Ask a pharmacy or local authority about take-back options.','tablet syrup'],['h','🎨','Paint / chemicals','Keep in the original sealed container and use a hazardous-waste collection point.','thinner solvent pesticide cleaner'],['h','🌡️','Thermometer (mercury)','Do not bin it. Handle carefully and contact local authorities.','mercury'],
+['s','👶','Diaper','Wrap in paper, mark red and hand over separately.','nappy baby'],['s','🩸','Sanitary pad / tampon','Wrap in paper, mark red and hand over separately.','napkin menstrual period'],['s','🩹','Bandage / used dressing','Wrap in paper and hand over as sanitary waste.','plaster cotton wound'],['s','😷','Used mask / gloves','Cut straps, wrap in paper and dispose of as sanitary waste.','face mask glove']];
+function card(it){const c=CAT[it[0]];return '<div class="waste"><span class="tag '+c[1]+'">'+c[0]+'</span><h3>'+it[1]+' '+esc(it[2])+'</h3><p><strong>Disposal:</strong> '+esc(it[3])+'</p></div>'}
+$('guideGrid').innerHTML=ITEMS.map(card).join('');
+const cards=[...document.querySelectorAll('.waste')];
+function filterItems(){const q=$('searchInput').value.trim().toLowerCase();let n=0;cards.forEach((el,i)=>{const it=ITEMS[i],m=(it[2]+' '+it[4]+' '+CAT[it[0]][0]).toLowerCase().includes(q);el.style.display=m?'':'none';if(m)n++});$('noResults').style.display=n?'none':'block'}
+$('searchInput').addEventListener('input',filterItems);$('clearSearch').addEventListener('click',()=>{$('searchInput').value='';filterItems();$('searchInput').focus()});
+
+// ---- Identifier ----
+$('wastePhoto').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;if(!f.type.startsWith('image/')){alert('Please select an image file.');return}const img=$('photoPreview');if(img.src)URL.revokeObjectURL(img.src);img.src=URL.createObjectURL(f);img.style.display='block'});
+$('identifyBtn').addEventListener('click',()=>{
+ const name=$('wasteName').value.trim(),q=name.toLowerCase(),out=$('identifyResult');out.style.display='block';
+ let it=q&&(ITEMS.find(i=>(i[2]+' '+i[4]).toLowerCase().includes(q))||ITEMS.find(i=>i[4].split(' ').concat(i[2].toLowerCase().split(/[ /,()]+/)).some(k=>k.length>2&&q.includes(k))));
+ if(it){const c=CAT[it[0]];out.innerHTML='<strong>'+it[1]+' '+esc(it[2])+'</strong><br><span class="tag '+c[1]+'">'+c[0]+'</span><p>'+esc(it[3])+'</p>';return}
+ const t=$('wasteType').value;
+ if(t){const c=CAT[t];out.innerHTML='<strong>'+esc(name||'Your item')+'</strong><br><span class="tag '+c[1]+'">'+c[0]+'</span><p>'+c[2]+'</p><span class="small">Based on the category you chose.</span>';return}
+ out.textContent=name?'No match for “'+name+'”. Pick the closest category above, or ask your local waste collector.':'Type an item name or choose a category.';
+});
+
+// ---- Maps with geolocation ----
+document.querySelectorAll('[data-q]').forEach(b=>b.addEventListener('click',()=>{
+ const q=encodeURIComponent(b.dataset.q),open=u=>window.open(u,'_blank','noopener'),fallback=()=>open('https://www.google.com/maps/search/'+q+'+near+me/');
+ if(!navigator.geolocation){fallback();return}
+ $('geoMsg').textContent='Finding your location…';
+ navigator.geolocation.getCurrentPosition(p=>{$('geoMsg').textContent='';open('https://www.google.com/maps/search/'+q+'/@'+p.coords.latitude+','+p.coords.longitude+',14z')},()=>{$('geoMsg').textContent='Location unavailable, so the search uses “near me” instead.';fallback()},{timeout:8000});
+}));
+
+// ---- Points, streak, badges ----
+function addPts(p,kg,act){write('ecoPoints',Math.max(0,read('ecoPoints',0)+p));write('ecoKg',Math.max(0,+(read('ecoKg',0)+(kg||0)).toFixed(1)));if(act)write('ecoActivityCount',Math.max(0,read('ecoActivityCount',0)+act));if(p>0)markDay()}
+function markDay(){const t=today(),last=read('ecoLastDay',null);if(last===t)return;const y=new Date();y.setDate(y.getDate()-1);write('ecoStreak',last===y.toDateString()?read('ecoStreak',0)+1:1);write('ecoLastDay',t)}
+function updateDashboard(){
+ const pts=read('ecoPoints',0),rep=read('ecoReports',[]),done=read('ecoChallenge_'+today(),[]),kg=read('ecoKg',0),st=read('ecoStreak',0);
+ $('pointsDisplay').textContent=pts+' pts';$('homePoints').textContent=pts;$('homeReports').textContent=rep.length;$('homeKg').textContent=kg;
+ $('activityCount').textContent=read('ecoActivityCount',0);$('adminPoints').textContent=pts;$('adminKg').textContent=kg;$('adminReports').textContent=rep.length;$('adminChallenges').textContent=done.length;
+ $('levelDisplay').textContent=pts>=300?'Eco Hero':pts>=150?'Green Guardian':pts>=50?'Sprout':'Seed';
+ $('nextLevel').textContent=pts<50?50-pts:pts<150?150-pts:pts<300?300-pts:0;
+ const lastOk=read('ecoLastDay',null);$('streak').textContent=(lastOk===today()||lastOk===new Date(Date.now()-864e5).toDateString())?st:0;
+ const b=[];if(pts>=50)b.push('🌱 Sprout');if(pts>=150)b.push('🛡️ Green Guardian');if(pts>=300)b.push('🏆 Eco Hero');if(st>=3)b.push('🔥 3-day streak');$('badges').textContent=b.length?'Badges: '+b.join('  '):'Badges appear as you earn points.';
+ $('adminReportList').innerHTML=rep.length?rep.slice().reverse().slice(0,8).map(r=>'<li><strong>'+esc(r.type)+'</strong>, '+esc(r.location)+' <span class="small">('+esc(r.date)+')</span><br><span class="small">'+esc(r.description)+'</span></li>').join(''):'<li class="muted">No reports saved yet. Use the Report section above.</li>';
+}
+document.querySelectorAll('.earn').forEach(btn=>btn.addEventListener('click',()=>{const key='ecoEarned_'+today(),e=read(key,[]),id=btn.dataset.id;if(e.includes(id)){$('rewardMessage').textContent='You already claimed this today. Try again tomorrow.';return}e.push(id);write(key,e);addPts(+btn.dataset.points,+btn.dataset.kg,1);$('rewardMessage').textContent='Nice work! '+btn.dataset.points+' points added.';updateDashboard()}));
+
+// ---- Challenge ----
+const ck='ecoChallenge_'+today();
+$('challengeDate').textContent=new Date().toLocaleDateString(undefined,{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+function updChal(){const n=read(ck,[]).length;$('challengeStatus').textContent=n+' of 3 completed today.'+(n===3?' Great job!':'')}
+document.querySelectorAll('[data-challenge]').forEach(box=>{const i=+box.dataset.challenge;box.checked=read(ck,[]).includes(i);box.addEventListener('change',()=>{let l=read(ck,[]);if(box.checked&&!l.includes(i)){l.push(i);addPts(5,0.3,1)}else if(!box.checked&&l.includes(i)){l=l.filter(x=>x!==i);addPts(-5,-0.3,-1)}write(ck,l);updChal();updateDashboard()})});updChal();
+
+// ---- Report + share ----
+let lastReport='';
+$('reportForm').addEventListener('submit',e=>{e.preventDefault();const type=$('issueType').value,loc=$('issueLocation').value.trim(),d=$('issueDescription').value.trim();if(!type||!loc||!d)return;
+ const r=read('ecoReports',[]);r.push({type,location:loc,description:d,date:new Date().toLocaleString()});
+ $('reportMessage').textContent=write('ecoReports',r)?'Report saved on this device. Share it with your municipal body below.':'Could not save in this browser, but you can still share the text below.';
+ lastReport='Waste complaint\nIssue: '+type+'\nLocation: '+loc+'\nDetails: '+d;$('waShare').href='https://wa.me/?text='+encodeURIComponent(lastReport);$('shareBox').style.display='flex';$('reportForm').reset();updateDashboard()});
+$('copyReport').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(lastReport);$('reportMessage').textContent='Report text copied.'}catch(e){$('reportMessage').textContent='Copy failed. Select the text manually or use WhatsApp.'}});
+$('resetData').addEventListener('click',()=>{if(!confirm('Clear all EcoSort data on this device?'))return;try{Object.keys(localStorage).filter(k=>k.startsWith('eco')).forEach(k=>localStorage.removeItem(k))}catch(e){}location.reload()});
+
+// ---- Quiz ----
+const Q=[
+{q:'A used banana peel belongs in which category?',a:['Wet / biodegradable','Dry / recyclable','Hazardous'],c:0,w:'Fruit peels decompose and can be composted.'},
+{q:'Where should an old mobile phone go?',a:['Wet bin','Dry household bin','Authorised e-waste collection'],c:2,w:'Electronics belong at an authorised e-waste collection point.'},
+{q:'What should you do before recycling a plastic bottle?',a:['Fill it with water','Empty, rinse and dry it','Mix it with food waste'],c:1,w:'Clean, dry containers are easier to recycle.'},
+{q:'How should a used diaper be handled?',a:['Compost it','Wrap it and hand it over as sanitary waste','Put it with paper recycling'],c:1,w:'Sanitary waste is wrapped, marked and kept separate.'},
+{q:'What should you do with an old battery?',a:['Burn it','Throw it in the wet bin','Take it to a battery collection point'],c:2,w:'Batteries contain toxic metals and need special handling.'}];
+let qi=0,score=0,done=false;
+function renderQuiz(){const q=Q[qi];done=false;$('quizCount').textContent='Question '+(qi+1)+' of '+Q.length+'. Score: '+score;$('question').textContent=q.q;$('answers').innerHTML=q.a.map((x,i)=>'<button class="answer" data-i="'+i+'">'+esc(x)+'</button>').join('');$('quizFeedback').textContent='';$('nextQuestion').style.display='none';
+ document.querySelectorAll('#answers .answer').forEach(b=>b.addEventListener('click',()=>{if(done)return;done=true;const i=+b.dataset.i,ok=i===q.c;if(ok)score++;
+  document.querySelectorAll('#answers .answer').forEach((x,j)=>{if(j===q.c)x.classList.add('ok');else if(x===b)x.classList.add('bad')});
+  $('quizFeedback').textContent=(ok?'Correct! ':'Not quite. ')+q.w;$('quizCount').textContent='Question '+(qi+1)+' of '+Q.length+'. Score: '+score;$('nextQuestion').style.display='inline-block';$('nextQuestion').textContent=qi===Q.length-1?'See result':'Next question'}))}
+$('nextQuestion').addEventListener('click',()=>{if(qi<Q.length-1){qi++;renderQuiz();return}
+ const k='ecoQuiz_'+today();let msg='';if(!read(k,false)&&score>0){write(k,true);addPts(score*2,0,1);msg=' You earned '+score*2+' points.'}else if(read(k,false))msg=' Quiz points were already claimed today.';
+ $('question').textContent='You scored '+score+' out of '+Q.length+'.';$('answers').innerHTML='<button class="answer" id="restart">Try again</button>';$('quizFeedback').textContent=(score===Q.length?'Excellent, you are an EcoSort champion!':'Good effort! Keep learning.')+msg;$('nextQuestion').style.display='none';$('quizCount').textContent='Quiz complete';$('restart').addEventListener('click',()=>{qi=0;score=0;renderQuiz()});updateDashboard()});
+
+// ---- Menu, theme, language ----
+$('menuBtn').addEventListener('click',()=>{const o=$('nav').classList.toggle('open');$('menuBtn').setAttribute('aria-expanded',o)});
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{$('nav').classList.remove('open');$('menuBtn').setAttribute('aria-expanded','false')}));
+$('themeBtn').addEventListener('click',()=>{const dark=document.documentElement.dataset.theme==='dark'||(!document.documentElement.dataset.theme&&matchMedia('(prefers-color-scheme:dark)').matches);const t=dark?'light':'dark';document.documentElement.dataset.theme=t;write('ecoTheme',t)});
+const sv=read('ecoTheme',null);if(sv)document.documentElement.dataset.theme=sv;
+const T={hi:{nHome:'होम',nCat:'श्रेणियाँ',nGuide:'कचरा गाइड',nId:'पहचान',nCen:'रीसायकलिंग केंद्र',nRew:'पुरस्कार',nCh:'चुनौती',nRep:'शिकायत',nQuiz:'क्विज़',nDash:'मेरा डैशबोर्ड',h1:'कचरा अलग करें।<br>धरती बचाएँ।',hp:'कचरे की पहचान करें, सही निपटान जानें, रीसायकलिंग विकल्प खोजें और हरी आदतें अपनाएँ।',cta1:'कचरा पहचानें',cta2:'कचरा गाइड देखें',hCat:'कचरे की श्रेणियाँ',hGuide:'कचरा पृथक्करण गाइड',hId:'कचरा पहचानकर्ता',hCen:'नज़दीकी रीसायकलिंग केंद्र',hRew:'इको पॉइंट और पुरस्कार',hCh:'दैनिक इको चुनौती',hRep:'अनुचित कचरा निपटान की शिकायत',hDash:'मेरा डैशबोर्ड',hQuiz:'इकोसॉर्ट क्विज़'},
+mr:{nHome:'मुख्यपृष्ठ',nCat:'श्रेणी',nGuide:'कचरा मार्गदर्शक',nId:'ओळख',nCen:'पुनर्वापर केंद्रे',nRew:'बक्षिसे',nCh:'आव्हान',nRep:'तक्रार',nQuiz:'प्रश्नमंजुषा',nDash:'माझा डॅशबोर्ड',h1:'कचरा वेगळा करा.<br>पृथ्वी वाचवा.',hp:'कचऱ्याची ओळख पटवा, योग्य विल्हेवाट शिका, पुनर्वापराचे पर्याय शोधा आणि हरित सवयी लावा.',cta1:'कचरा ओळखा',cta2:'कचरा मार्गदर्शक पहा',hCat:'कचऱ्याच्या श्रेणी',hGuide:'कचरा वर्गीकरण मार्गदर्शक',hId:'कचरा ओळखक',hCen:'जवळची पुनर्वापर केंद्रे',hRew:'इको पॉइंट्स आणि बक्षिसे',hCh:'दैनिक इको आव्हान',hRep:'अयोग्य कचरा विल्हेवाटीची तक्रार',hDash:'माझा डॅशबोर्ड',hQuiz:'इकोसॉर्ट प्रश्नमंजुषा'}};
+document.querySelectorAll('[data-i]').forEach(el=>el.dataset.en=el.innerHTML);
+function setLang(l){document.documentElement.lang=l;document.querySelectorAll('[data-i]').forEach(el=>{el.innerHTML=(l!=='en'&&T[l][el.dataset.i])||el.dataset.en});write('ecoLang',l)}
+$('lang').addEventListener('change',e=>setLang(e.target.value));
+const sl=read('ecoLang','en');if(sl!=='en'&&T[sl]){$('lang').value=sl;setLang(sl)}
+renderQuiz();updateDashboard();
+</script>
+</body></html>
